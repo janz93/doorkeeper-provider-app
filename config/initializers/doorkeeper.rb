@@ -155,7 +155,7 @@ Doorkeeper.configure do
   # https://github.com/doorkeeper-gem/doorkeeper/wiki/Using-Scopes
   #
   default_scopes :read
-  optional_scopes :write
+  optional_scopes :write, :openid
 
   # Define scopes_by_grant_type to restrict only certain scopes for grant_type
   # By default, all the scopes will be available for all the grant types.
@@ -263,7 +263,7 @@ Doorkeeper.configure do
   #   http://tools.ietf.org/html/rfc6819#section-4.4.2
   #   http://tools.ietf.org/html/rfc6819#section-4.4.3
   #
-  # grant_flows %w[authorization_code client_credentials]
+  grant_flows %w(authorization_code implicit_oidc)
 
   # Hook into the strategies' request & response life-cycle in case your
   # application needs advanced customization or logging:
